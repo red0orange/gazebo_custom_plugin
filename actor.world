@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+    <world name="default">
+        <include>
+            <uri>model://ground_plane</uri>
+        </include>
+        <include>
+            <uri>model://sun</uri>
+        </include>
+        <actor name="actor1">
+            <pose>0 0 1.0 1.5707 0 0</pose>
+            <skin>
+                <filename>moonwalk.dae</filename>
+                <scale>1.0</scale>
+            </skin>
+            <animation name="walking">
+                <filename>walk.dae</filename>
+                <scale>1.000000</scale>
+                <interpolate_x>true</interpolate_x>
+            </animation>
+            <plugin name="actor1_plugin" filename="libcustom_actor_plugin.so">
+                <target>0 -5 1.2138</target>
+                <target_weight>1.15</target_weight>
+                <obstacle_weight>1.8</obstacle_weight>
+                <animation_factor>5.1</animation_factor>
+                <ignore_obstacles>
+                    <model>cafe</model>
+                    <model>ground_plane</model>
+                </ignore_obstacles>
+                <trajectory>
+                    <waypoint>
+                        <time>0.0</time>
+                        <pose>-2 -1</pose>
+                    </waypoint>
+                    <waypoint>
+                        <time>1.0</time>
+                        <pose>-3 4</pose>
+                    </waypoint>
+                    <waypoint>
+                        <time>2.0</time>
+                        <pose>1 1</pose>
+                    </waypoint>
+                    <waypoint>
+                        <time>3.0</time>
+                        <pose>1 -1</pose>
+                    </waypoint>
+                </trajectory>
+                <walking_mode>custom</walking_mode>
+            </plugin>
+        </actor>
+    </world>
+</sdf>
