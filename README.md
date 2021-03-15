@@ -1,3 +1,5 @@
+# Gazebo可手动控制的仿真人模型
+
 # 使用说明
 
 1. gazebo_extra_plugins是一个ros包，直接放入工作空间编译即可生成需要的插件。
